@@ -1,52 +1,1814 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jabir Hussain Syed | Academic Website</title>
-  <style>
-    body { font-family: system-ui, Arial, sans-serif; margin: 0; line-height: 1.6; }
-    header, main, footer { max-width: 980px; margin: 0 auto; padding: 20px; }
-    nav a { margin-right: 14px; text-decoration: none; }
-    .card { border: 1px solid #ddd; border-radius: 10px; padding: 16px; margin: 14px 0; }
-    h1,h2 { line-height: 1.2; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Jabir Hussain Syed - Academic Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1e3a5f;
+            --secondary-color: #2c5282;
+            --accent-color: #3182ce;
+            --text-dark: #1a202c;
+            --text-light: #4a5568;
+            --bg-light: #f7fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+            --success-color: #38a169;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255,255,255,0.3);
+            box-shadow: var(--shadow-lg);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-content .title {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-content .institution {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .hero-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-item svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.8;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            animation: fadeInUp 0.8s ease 0.8s backwards;
+        }
+
+        .hero-btn {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.5);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .about-card h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .about-card h3 svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent-color);
+        }
+
+        .about-card ul {
+            list-style: none;
+        }
+
+        .about-card li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .about-card li::before {
+            content: '▸';
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .card-badge {
+            padding: 0.25rem 0.75rem;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .card-badge.pi {
+            background: var(--success-color);
+        }
+
+        .card-badge.co-pi {
+            background: var(--secondary-color);
+        }
+
+        .card-amount {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--success-color);
+            margin: 1rem 0;
+        }
+
+        .card-period {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-period svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .card-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-top: 1rem;
+        }
+
+        /* Students Section */
+        .students-section {
+            background: var(--bg-white);
+        }
+
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .student-card {
+            background: var(--bg-light);
+            border-radius: 15px;
+            padding: 2rem;
+            border-left: 5px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .student-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .student-card.phd {
+            border-left-color: var(--primary-color);
+        }
+
+        .student-card.master {
+            border-left-color: var(--accent-color);
+        }
+
+        .student-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .student-degree {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .student-degree.master {
+            background: var(--accent-color);
+        }
+
+        .student-university {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .student-university svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .thesis-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .thesis-title {
+            font-style: italic;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Consultancy Section */
+        .consultancy-section {
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+        }
+
+        .consultancy-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .consultancy-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: var(--accent-color);
+        }
+
+        .consultancy-item {
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            width: calc(50% - 2rem);
+        }
+
+        .consultancy-item:nth-child(odd) {
+            margin-left: auto;
+        }
+
+        .consultancy-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .consultancy-item:nth-child(odd)::before {
+            left: -2.5rem;
+        }
+
+        .consultancy-item:nth-child(even)::before {
+            right: -2.5rem;
+        }
+
+        .consultancy-year {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .consultancy-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .consultancy-client {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .consultancy-client svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Experience Section */
+        .experience-section {
+            background: var(--bg-white);
+        }
+
+        .experience-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s ease;
+        }
+
+        .experience-item:hover {
+            background: var(--bg-light);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-date {
+            font-weight: 600;
+            color: var(--accent-color);
+            font-size: 0.95rem;
+        }
+
+        .experience-content h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-content .institution {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-content .location {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Publications Section */
+        .publications-section {
+            background: var(--bg-light);
+        }
+
+        .publication-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid var(--accent-color);
+            background: transparent;
+            color: var(--accent-color);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .publication-list {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .publication-item {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .publication-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(5px);
+        }
+
+        .publication-item .year {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-item .authors {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .publication-item .title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-item .journal {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .publication-item .corresponding {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            background: var(--success-color);
+            color: white;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-item svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-contact {
+                justify-content: center;
+            }
+
+            .hero-links {
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .consultancy-timeline::before {
+                left: 20px;
+            }
+
+            .consultancy-item {
+                width: 100%;
+                margin-left: 3rem !important;
+            }
+
+            .consultancy-item::before {
+                left: -2.5rem !important;
+                right: auto !important;
+            }
+
+            .experience-item {
+                grid-template-columns: 150px 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem 2rem;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content .title {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .students-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .footer-contact {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Research Areas */
+        .research-areas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .research-tag {
+            padding: 0.5rem 1rem;
+            background: var(--bg-white);
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .research-tag:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Jabir Hussain Syed, Ph.D</h1>
-    <p>Tenured Associate Professor, Department of Meteorology, COMSATS University Islamabad</p>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="grants.html">Grants</a>
-      <a href="students.html">Students</a>
-      <a href="consulting.html">Consulting</a>
-      <a href="publications.html">Publications</a>
-      <a href="teaching.html">Teaching</a>
-      <a href="contact.html">Contact</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Dr. Jabir H. Syed</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#grants">Grants</a></li>
+                <li><a href="#students">Students</a></li>
+                <li><a href="#consultancy">Consultancy</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
-  </header>
 
-  <main>
-    <div class="card">
-      <h2>Research Focus</h2>
-      <p>Environmental contaminants (POPs, e-waste related toxic substances), air quality, and environmental monitoring.</p>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-image">
+                <img src="https://image.qwenlm.ai/public_source/41ef8d11-f52a-4f7d-9880-b3a06a857887/15f02237e-0d86-45b8-95d5-ae0c3588eac0.png" alt="Dr. Jabir Hussain Syed">
+            </div>
+            <div class="hero-content">
+                <h1>Jabir Hussain Syed, Ph.D</h1>
+                <p class="title">Tenured Associate Professor</p>
+                <p class="institution">Department of Meteorology, COMSATS University Islamabad</p>
+                <div class="hero-contact">
+                    <div class="contact-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        jabir.syed@comsats.edu.pk
+                    </div>
+                    <div class="contact-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        +92 345 4824 777
+                    </div>
+                    <div class="contact-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        Islamabad, Pakistan
+                    </div>
+                </div>
+                <div class="hero-links">
+                    <a href="https://scholar.google.com/citations?user=n9RFYAgAAAAJ&hl=en" target="_blank" class="hero-btn">Google Scholar</a>
+                    <a href="https://www.linkedin.com/in/jabir-syed-4364993b/" target="_blank" class="hero-btn">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="card">
-      <h2>Highlights</h2>
-      <ul>
-        <li>PI/Co-PI on national and international grants and capacity-building projects</li>
-        <li>Supervision of PhD and Master theses in air quality, contaminants, GIS/RS</li>
-        <li>Consulting with WWF-Pakistan, ADB, UNDP, and partners</li>
-      </ul>
-    </div>
-  </main>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item fade-in">
+                <div class="stat-number">75+</div>
+                <div class="stat-label">Publications</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Research Grants</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Students Supervised</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Consultancy Projects</div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    <small>© 2026 Jabir Hussain Syed</small>
-  </footer>
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2>About Me</h2>
+            <p>Environmental Scientist & Meteorologist specializing in air quality, persistent organic pollutants, and climate research</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card fade-in">
+                <h3>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    </svg>
+                    Education
+                </h3>
+                <ul>
+                    <li><strong>Ph.D</strong> – Environmental Biology (2014)<br>Quaid-I-Azam University / Chinese Academy of Sciences</li>
+                    <li><strong>MS</strong> – Environmental Biology (2009)<br>Quaid-I-Azam University, Islamabad</li>
+                    <li><strong>BSc (Hons)</strong> – Soil Sciences (2007)<br>PMAS University of Arid Agriculture, Rawalpindi</li>
+                </ul>
+            </div>
+            <div class="about-card fade-in">
+                <h3>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                    </svg>
+                    Research Areas
+                </h3>
+                <div class="research-areas">
+                    <span class="research-tag">Air Quality</span>
+                    <span class="research-tag">Persistent Organic Pollutants</span>
+                    <span class="research-tag">E-Waste Pollution</span>
+                    <span class="research-tag">Climate Change</span>
+                    <span class="research-tag">Environmental Toxicology</span>
+                    <span class="research-tag">Atmospheric Chemistry</span>
+                    <span class="research-tag">Remote Sensing & GIS</span>
+                    <span class="research-tag">Health Risk Assessment</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="section-header">
+            <h2>Work Experience</h2>
+            <p>Academic and research positions held throughout my career</p>
+        </div>
+        <div class="experience-list">
+            <div class="experience-item fade-in">
+                <div class="experience-date">2025 – Present</div>
+                <div class="experience-content">
+                    <h3>PIFI Visiting Associate Professor</h3>
+                    <p class="institution">Guangzhou Institute of Geochemistry, Chinese Academy of Sciences</p>
+                    <p class="location">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        </svg>
+                        Guangzhou, China
+                    </p>
+                </div>
+            </div>
+            <div class="experience-item fade-in">
+                <div class="experience-date">2023 – Present</div>
+                <div class="experience-content">
+                    <h3>Associate Professor (Tenured)</h3>
+                    <p class="institution">Department of Meteorology, COMSATS University Islamabad</p>
+                    <p class="location">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        </svg>
+                        Islamabad, Pakistan
+                    </p>
+                </div>
+            </div>
+            <div class="experience-item fade-in">
+                <div class="experience-date">2024</div>
+                <div class="experience-content">
+                    <h3>International Visiting Scholar</h3>
+                    <p class="institution">Department of Environmental Toxicology, University of California, Davis</p>
+                    <p class="location">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        </svg>
+                        Davis, USA
+                    </p>
+                </div>
+            </div>
+            <div class="experience-item fade-in">
+                <div class="experience-date">2017 – 2018</div>
+                <div class="experience-content">
+                    <h3>Visiting Research Fellow</h3>
+                    <p class="institution">Department of Environmental & Civil Engineering, Hong Kong Polytechnic University</p>
+                    <p class="location">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        </svg>
+                        Hong Kong
+                    </p>
+                </div>
+            </div>
+            <div class="experience-item fade-in">
+                <div class="experience-date">2015 – 2023</div>
+                <div class="experience-content">
+                    <h3>Assistant Professor (Tenure Track)</h3>
+                    <p class="institution">Department of Meteorology, COMSATS University Islamabad</p>
+                    <p class="location">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        </svg>
+                        Islamabad, Pakistan
+                    </p>
+                </div>
+            </div>
+            <div class="experience-item fade-in">
+                <div class="experience-date">2014 – 2015</div>
+                <div class="experience-content">
+                    <h3>Post-Doctoral Researcher</h3>
+                    <p class="institution">Guangzhou Institute of Geochemistry, Chinese Academy of Sciences</p>
+                    <p class="location">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        </svg>
+                        Guangzhou, China
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grants Section -->
+    <section id="grants">
+        <div class="section-header">
+            <h2>Research Grants</h2>
+            <p>Funded research projects as Principal Investigator and Co-Investigator</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Investigation of POPs and Heavy Metals from E-waste</h3>
+                        <p class="card-subtitle">Pakistan Science Foundation</p>
+                    </div>
+                    <span class="card-badge pi">PI</span>
+                </div>
+                <div class="card-amount">PKR 8.1 Million</div>
+                <div class="card-period">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    2019 – 2022
+                </div>
+                <p class="card-description">Investigation of selected Persistent Organic Pollutants (POPs) and heavy metals pollution from E-waste processing facilities in Pakistan.</p>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Basel Convention Plastic Waste Control</h3>
+                        <p class="card-subtitle">Asian Pacific Network for Global Change Research (APN)</p>
+                    </div>
+                    <span class="card-badge pi">PI</span>
+                </div>
+                <div class="card-amount">US$ 57,000</div>
+                <div class="card-period">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    2022 – 2024
+                </div>
+                <p class="card-description">Value Chain Mapping and Capacity Building of Pakistani Government Stakeholders to Implement Basel Convention's Amendments for Plastic Waste Control.</p>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Carbonaceous Aerosols & South Asian Brown Clouds</h3>
+                        <p class="card-subtitle">Natural National Science Foundation, China</p>
+                    </div>
+                    <span class="card-badge pi">PI</span>
+                </div>
+                <div class="card-amount">RMB 200,000</div>
+                <div class="card-period">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    2016 – 2017
+                </div>
+                <p class="card-description">Role of carbonaceous aerosols in the formation of South Asian brown clouds from Pakistan: Characterization and source apportionment using radiocarbon and organic tracers.</p>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Antibiotic Resistance Genes in Smog Particulate Matter</h3>
+                        <p class="card-subtitle">Higher Education Commission of Pakistan</p>
+                    </div>
+                    <span class="card-badge co-pi">Co-PI</span>
+                </div>
+                <div class="card-amount">PKR 6.5 Million</div>
+                <div class="card-period">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    2020 – 2022
+                </div>
+                <p class="card-description">Molecular Epidemiology and Prevalence of Antibiotic Resistance Genes in Smog Particulate Matter: Implication for Human Exposure in Pakistan.</p>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Marine Cloud Brightening Assessment</h3>
+                        <p class="card-subtitle">ARIA, UK</p>
+                    </div>
+                    <span class="card-badge">Collaborator</span>
+                </div>
+                <div class="card-amount">€ 574,000</div>
+                <div class="card-period">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    2025 – 2028
+                </div>
+                <p class="card-description">Evidence-based Assessments to Guide Perceptions, Governance, and Ethical Frameworks for South Asia: Comparing Marine Cloud Brightening Deployment Strategies.</p>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Pakistan-Indiana Environmental Partnership</h3>
+                        <p class="card-subtitle">US Embassy in Pakistan</p>
+                    </div>
+                    <span class="card-badge">Collaborator</span>
+                </div>
+                <div class="card-period">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    2024 – 2026
+                </div>
+                <p class="card-description">Pakistan-Indiana Environmental and Climate Resilience University Partnership (PIECRUP) for enhancing environmental research collaboration.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Students Section -->
+    <section id="students" class="students-section">
+        <div class="section-header">
+            <h2>Students Supervised</h2>
+            <p>PhD and Master's students under my supervision with their thesis titles</p>
+        </div>
+        
+        <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem; font-size: 1.5rem;">PhD Students</h3>
+        <div class="students-grid">
+            <div class="student-card phd fade-in">
+                <div class="student-name">Mureed Kazim</div>
+                <span class="student-degree">PhD</span>
+                <p class="student-university">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                    International Islamic University Islamabad
+                </p>
+                <p class="thesis-label">Thesis Title</p>
+                <p class="thesis-title">Assessing the Spatio-Temporal Trends of Selected Toxic Substances from E-waste Recycling Facilities in Pakistan</p>
+            </div>
+
+            <div class="student-card phd fade-in">
+                <div class="student-name">Sumaira Mudassir</div>
+                <span class="student-degree">PhD</span>
+                <p class="student-university">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                    Bahria University Islamabad
+                </p>
+                <p class="thesis-label">Thesis Title</p>
+                <p class="thesis-title">Biomonitoring of Hazardous Substances in Workers Associated with Electronic Waste Processing Facilities in Pakistan</p>
+            </div>
+
+            <div class="student-card phd fade-in">
+                <div class="student-name">Abdul Shakoor</div>
+                <span class="student-degree">PhD</span>
+                <p class="student-university">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                    Bahria University Islamabad
+                </p>
+                <p class="thesis-label">Thesis Title</p>
+                <p class="thesis-title">Estimation and Analysis of Atmospheric Emissions from Ship Breaking Industry in Gadani Balochistan, Pakistan</p>
+            </div>
+
+            <div class="student-card phd fade-in">
+                <div class="student-name">Sajid Kamal</div>
+                <span class="student-degree">PhD</span>
+                <p class="student-university">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                    Shandong University, Qingdao Campus, China
+                </p>
+                <p class="thesis-label">Thesis Title</p>
+                <p class="thesis-title">Characteristics, seasonal variations and major sources of underivatized free amino acids in PM2.5 in Qingdao, China</p>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; color: var(--primary-color); margin: 3rem 0 2rem; font-size: 1.5rem;">Master's Students</h3>
+        <div class="students-grid">
+            <div class="student-card master fade-in">
+                <div class="student-name">Syed Waseem Iqbal</div>
+                <span class="student-degree master">MS Meteorology</span>
+                <p class="student-university">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                    COMSATS University Islamabad (2017-2019)
+                </p>
+                <p class="thesis-label">Thesis Title</p>
+                <p class="thesis-title">Performance Evaluation of Observed and Reanalysis Gridded Precipitation Datasets over Pakistan</p>
+            </div>
+
+            <div class="student-card master fade-in">
+                <div class="student-name">Jaziba Ishtiaq</div>
+                <span class="student-degree master">MS Meteorology</span>
+                <p class="student-university">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                    COMSATS University Islamabad (2016-2018)
+                </p>
+                <p class="thesis-label">Thesis Title</p>
+                <p class="thesis-title">Understanding the Sources and Impacts of Meteorological Conditions on Occurrence and Variations of Atmospheric Polycyclic Aromatic Hydrocarbons in Urban Areas of Pakistan</p>
+            </div>
+
+            <div class="student-card master fade-in">
+                <div class="student-name">Masroor Ahmad</div>
+                <span class="student-degree master">MS Environmental Sciences</span>
+                <p class="student-university">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                    Karakorum International University, Gilgit (2018-2020)
+                </p>
+                <p class="thesis-label">Thesis Title</p>
+                <p class="thesis-title">Temporal Variation of Carbonaceous Aerosols in Gilgit City: Trends, Characterization and Source Apportionment</p>
+            </div>
+
+            <div class="student-card master fade-in">
+                <div class="student-name">Muhammad Khalid</div>
+                <span class="student-degree master">MS Remote Sensing & GIS</span>
+                <p class="student-university">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                    COMSATS University Islamabad (Completed)
+                </p>
+                <p class="thesis-label">Thesis Title</p>
+                <p class="thesis-title">Identification of Debris Flow Hazards using GIS Techniques and Flow-R in Gilgit District, Pakistan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultancy Section -->
+    <section id="consultancy" class="consultancy-section">
+        <div class="section-header">
+            <h2>Consultancy Projects</h2>
+            <p>Environmental consulting and policy development projects</p>
+        </div>
+        <div class="consultancy-timeline">
+            <div class="consultancy-item fade-in">
+                <span class="consultancy-year">2025</span>
+                <h3 class="consultancy-title">Ecological Assessment of Significant Peatlands in KPK</h3>
+                <p class="consultancy-client">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    WWF-Pakistan
+                </p>
+                <p class="card-description">Develop Management Plan and Ramsar Information Sheet (RIS) of the selected Peatlands.</p>
+            </div>
+
+            <div class="consultancy-item fade-in">
+                <span class="consultancy-year">2025</span>
+                <h3 class="consultancy-title">National Environmental and Air Quality Research Expert</h3>
+                <p class="consultancy-client">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    Asian Development Bank (ADB)
+                </p>
+                <p class="card-description">TA-10243 REG: Enhancing Environmental Sustainability through Inclusive, Integrated Solutions (Mainstreaming Circular Economy Approaches for Sustainable Development).</p>
+            </div>
+
+            <div class="consultancy-item fade-in">
+                <span class="consultancy-year">2023</span>
+                <h3 class="consultancy-title">Ecological Assessment of Significant Wetlands in Gilgit-Baltistan</h3>
+                <p class="consultancy-client">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    WWF-Pakistan
+                </p>
+                <p class="card-description">Individual Consultant to Develop Ramsar Information Sheets for significant wetlands.</p>
+            </div>
+
+            <div class="consultancy-item fade-in">
+                <span class="consultancy-year">2023</span>
+                <h3 class="consultancy-title">Climate Change Impact on Urban Areas of Multan City</h3>
+                <p class="consultancy-client">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    Help Foundation & START Network
+                </p>
+                <p class="card-description">Technical Analysis of Climate Change Impact on Urban Areas of Multan City with Special Focus on Heatwave.</p>
+            </div>
+
+            <div class="consultancy-item fade-in">
+                <span class="consultancy-year">2021-2022</span>
+                <h3 class="consultancy-title">Climate Adaptation and Resilience (CARE) for South Asia</h3>
+                <p class="consultancy-client">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    Asian Disaster Prepared Center (ADPC) & World Bank
+                </p>
+                <p class="card-description">National Capacity Need Assessment Consultant for climate adaptation and resilience project.</p>
+            </div>
+
+            <div class="consultancy-item fade-in">
+                <span class="consultancy-year">2020</span>
+                <h3 class="consultancy-title">Development of National Chemical Policy for Pakistan</h3>
+                <p class="consultancy-client">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    UNDP, MASRO Pakistan & SEM Pvt. Ltd
+                </p>
+                <p class="card-description">Lead Consultant for the Development of National Chemical Policy for Pakistan in Coordination with Ministry of Climate Change.</p>
+            </div>
+
+            <div class="consultancy-item fade-in">
+                <span class="consultancy-year">2019</span>
+                <h3 class="consultancy-title">National Inventory of PCBs</h3>
+                <p class="consultancy-client">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    UNDP Pakistan
+                </p>
+                <p class="card-description">National Consultant for Formulation of Pilot Inventory of PCBs at National Level and Work on PCBs Database.</p>
+            </div>
+
+            <div class="consultancy-item fade-in">
+                <span class="consultancy-year">2017-2018</span>
+                <h3 class="consultancy-title">National Inventory of POPs in Pakistan</h3>
+                <p class="consultancy-client">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    UNDP, GEF, Ministry of Climate Change Pakistan
+                </p>
+                <p class="card-description">National Inventory Facilitator of new & emerging persistent organic pollutants (POPs) in Pakistan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="publications-section">
+        <div class="section-header">
+            <h2>Selected Publications</h2>
+            <p>Recent peer-reviewed research publications</p>
+        </div>
+        
+        <div class="publication-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="2026">2026</button>
+            <button class="filter-btn" data-filter="2025">2025</button>
+            <button class="filter-btn" data-filter="2024">2024</button>
+            <button class="filter-btn" data-filter="2023">2023</button>
+        </div>
+
+        <div class="publication-list">
+            <div class="publication-item fade-in" data-year="2026">
+                <span class="year">2026</span>
+                <p class="authors">Xiao, Y., Zhao, S., Wang, W., Asante, K.A., Habib, A., Bong, C.W., <strong>Syed, J.H.</strong>, Bartilol, S., Weber, R., Jones, K.C. and Li, J.</p>
+                <p class="title">Highly Volatile POPs in Urban Air across Asia and Africa: Dominance of Volatile Methyl siloxanes</p>
+                <p class="journal">Environmental Science & Technology, 60, 2063–2075</p>
+            </div>
+
+            <div class="publication-item fade-in" data-year="2025">
+                <span class="year">2025</span>
+                <span class="corresponding">Corresponding</span>
+                <p class="authors">Khalid, M., <strong>Syed, J.H.*</strong>, et al.</p>
+                <p class="title">Debris Flow Susceptibility and Propagation Modeling: A Deep Learning and Flow-R Framework</p>
+                <p class="journal">Bulletin of Engineering Geology and the Environment, 84, 45</p>
+            </div>
+
+            <div class="publication-item fade-in" data-year="2025">
+                <span class="year">2025</span>
+                <span class="corresponding">Corresponding</span>
+                <p class="authors">Khalid, A., Abbasi, N. A., Jamil, N., <strong>Syed, J. H.*</strong>, Qadir, A., & Ahmad, S. R.</p>
+                <p class="title">Assessment of organochlorine pesticides in blood and tumor of breast cancer patients and control subjects from Punjab, Pakistan</p>
+                <p class="journal">Environmental Geochemistry and Health, 47(9), 1-15</p>
+            </div>
+
+            <div class="publication-item fade-in" data-year="2025">
+                <span class="year">2025</span>
+                <span class="corresponding">Corresponding</span>
+                <p class="authors">Akram, S., Khan, S. A., Gul, H. K., <strong>Syed, J. H.*</strong>, Kazim, M., Rehman, S. A. U.,...& Kurt-Karakus, P.</p>
+                <p class="title">Using hair as a non-invasive matrix to assess the exposure of e-waste workers to selected heavy metals in Pakistan</p>
+                <p class="journal">Environmental Geochemistry and Health, 47(6), 1-12</p>
+            </div>
+
+            <div class="publication-item fade-in" data-year="2025">
+                <span class="year">2025</span>
+                <span class="corresponding">Corresponding</span>
+                <p class="authors">Kamal, S., Wang, X., Liu, M., Shakoor, A., Li, M., Ali, J.,...& <strong>Syed, J. H.*</strong></p>
+                <p class="title">Characteristics, seasonal variations and major sources of underivatized free amino acids in PM2.5 at a rural coastal site in Qingdao, China</p>
+                <p class="journal">Environmental Pollution, 126517</p>
+            </div>
+
+            <div class="publication-item fade-in" data-year="2024">
+                <span class="year">2024</span>
+                <span class="corresponding">Corresponding</span>
+                <p class="authors">Kazim, M., <strong>Syed, J.H.*</strong>, Saqib, Z., Kurt-Karakus, P.B., Iqbal M........& Odabasi, M.</p>
+                <p class="title">Informal E-waste recycling in nine cities of Pakistan reveals significant impacts on local air and soil quality and associated health risks</p>
+                <p class="journal">Environmental Pollution, 124259</p>
+            </div>
+
+            <div class="publication-item fade-in" data-year="2024">
+                <span class="year">2024</span>
+                <span class="corresponding">Corresponding</span>
+                <p class="authors">Khalid, A., Abbasi, N. A., Jamil, N., <strong>Syed, J.H.*</strong>, Ahmad, S. R., & Qadir, A.</p>
+                <p class="title">Level of polychlorinated biphenyls in tumor and blood serum of breast cancer patients and control subjects from Punjab, Pakistan</p>
+                <p class="journal">Science of The Total Environment, 171908</p>
+            </div>
+
+            <div class="publication-item fade-in" data-year="2023">
+                <span class="year">2023</span>
+                <span class="corresponding">Corresponding</span>
+                <p class="authors">Hussain, N., Ahmad, M., Sipra, H., Ali, S., <strong>Syed, J.H.*</strong>, Hussain, K., Hussain, S.W.</p>
+                <p class="title">First insight into seasonal variability of urban air quality of Northern Pakistan: An emerging issue associated with health risks in Karakoram-Hindukush-Himalaya Region</p>
+                <p class="journal">Chemosphere, 316, 137878</p>
+            </div>
+
+            <div class="publication-item fade-in" data-year="2023">
+                <span class="year">2023</span>
+                <span class="corresponding">Corresponding</span>
+                <p class="authors">Kazim, M., <strong>Syed, J.H.*</strong>, Kurt-Karakus, P. B., Akcetin, M. O., Akram, S., Birgul, A.,...& Wania, F.</p>
+                <p class="title">Gaseous elemental mercury emissions from informal E-Waste recycling facilities in Pakistan</p>
+                <p class="journal">Waste Management, 170, 261-269</p>
+            </div>
+
+            <div class="publication-item fade-in" data-year="2023">
+                <span class="year">2023</span>
+                <p class="authors">Yadav, I. C., Devi, N. L., & <strong>Syed, J.H.</strong></p>
+                <p class="title">Legacy and emerging flame retardants as environmental pollutants: occurrence, toxicity mechanisms, and control</p>
+                <p class="journal">Frontiers in Environmental Science, 11, 1257582</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards">
+        <div class="section-header">
+            <h2>Awards & Fellowships</h2>
+            <p>Recognition and honors received throughout my career</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card fade-in">
+                <div class="card-header">
+                    <h3 class="card-title">Best Research Paper Award 2017</h3>
+                    <span class="card-badge pi">Award</span>
+                </div>
+                <p class="card-subtitle">Higher Education Commission Pakistan</p>
+                <p class="card-description">For the paper "E-waste Driven Pollution in Pakistan: The First Evidence of Environmental and Human Exposure to Flame Retardants (FRs) in Karachi City".</p>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <h3 class="card-title">Research Productivity Award 2015</h3>
+                    <span class="card-badge pi">Award</span>
+                </div>
+                <p class="card-subtitle">Pakistan Council for Science & Technology</p>
+                <p class="card-description">Ministry of Science & Technology Pakistan for outstanding research contributions.</p>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <h3 class="card-title">Presidential Postdoctoral Fellowship (PIFI)</h3>
+                    <span class="card-badge pi">Fellowship</span>
+                </div>
+                <p class="card-subtitle">Chinese Academy of Sciences, China</p>
+                <p class="card-description">Prestigious postdoctoral fellowship awarded in 2015.</p>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <h3 class="card-title">IRSIP Fellowship</h3>
+                    <span class="card-badge pi">Fellowship</span>
+                </div>
+                <p class="card-subtitle">Higher Education Commission (HEC), Pakistan</p>
+                <p class="card-description">International Research Support Initiative Program Fellowship for PhD Research (2011).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 2rem;">Get In Touch</h2>
+            <div class="footer-contact">
+                <div class="footer-contact-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    jabir.syed@comsats.edu.pk
+                </div>
+                <div class="footer-contact-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    +92 345 4824 777
+                </div>
+                <div class="footer-contact-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Islamabad, Pakistan
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="https://scholar.google.com/citations?user=n9RFYAgAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                <a href="https://www.linkedin.com/in/jabir-syed-4364993b/" target="_blank">LinkedIn</a>
+                <a href="#about">About</a>
+                <a href="#publications">Publications</a>
+            </div>
+            <p class="copyright">© 2026 Dr. Jabir Hussain Syed. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Publication Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const publicationItems = document.querySelectorAll('.publication-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                publicationItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.year === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateX(0)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateX(-20px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Counter animation for stats
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let statsAnimated = false;
+
+        const animateStats = () => {
+            statNumbers.forEach(stat => {
+                const target = stat.textContent;
+                const hasPlus = target.includes('+');
+                const number = parseInt(target.replace(/\D/g, ''));
+                
+                if (hasPlus) {
+                    stat.textContent = number + '+';
+                } else {
+                    stat.textContent = number;
+                }
+            });
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    statsAnimated = true;
+                    animateStats();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
 </body>
 </html>
+
